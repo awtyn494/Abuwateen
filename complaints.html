@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الطوارئ والشكاوى - متجر أبو وتين</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/guard.js" defer></script>
+</head>
+<body>
+
+<header>
+<img src="assets/images/logo.png" class="watermark">
+<h1>قسم الطوارئ – الرد السريع</h1>
+<nav>
+<a href="index.html">الرئيسية</a>
+<a href="services.html">الخدمات الإلكترونية</a>
+<a href="blog.html">المدونة</a>
+<a href="contact.html">اتصل بنا</a>
+<a href="login.html" onclick="logout()">تسجيل خروج</a>
+</nav>
+</header>
+
+<section class="complaints">
+<textarea placeholder="اكتب مشكلتك أو حالة التهديد" id="complaintText"></textarea>
+<button onclick="autoReply()">إرسال</button>
+<p id="reply"></p>
+</section>
+
+<script>
+function autoReply(){
+const complaint = document.getElementById("complaintText").value;
+if(complaint==""){
+alert("يرجى كتابة المشكلة أولاً");
+return;
+}
+document.getElementById("reply").innerText =
+"تم استلام طلبك، فريقنا سيتواصل معك فورًا عبر واتساب.";
+document.getElementById("complaintText").value = "";
+}
+</script>
+
+</body>
+</html>

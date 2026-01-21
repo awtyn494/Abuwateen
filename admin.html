@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة الأدمن | متجر أبو وتين شخصياً</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<img src="assets/images/logo.png" class="watermark" alt="شعار المتجر">
+
+<div class="container">
+<h2>تسجيل دخول الأدمن</h2>
+<input id="adminEmail" placeholder="البريد الإلكتروني">
+<input id="adminPassword" type="password" placeholder="كلمة المرور">
+<button onclick="adminLogin()">دخول</button>
+<div id="adminMessage" style="margin-top:15px;color:#2ecc71;"></div>
+</div>
+
+<script src="js/firebase.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
