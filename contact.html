@@ -7,21 +7,24 @@
 <link rel="stylesheet" href="css/style.css">
 <script src="js/guard.js" defer></script>
 </head>
+
 <body>
 
 <header>
 <img src="assets/images/logo.png" class="watermark">
 <h1>اتصل بنا</h1>
+
 <nav>
 <a href="index.html">الرئيسية</a>
 <a href="services.html">الخدمات الإلكترونية</a>
 <a href="blog.html">المدونة</a>
 <a href="complaints.html">الطوارئ</a>
-<a href="login.html" onclick="logout()">تسجيل خروج</a>
+<a href="login.html">تسجيل خروج</a>
 </nav>
 </header>
 
 <section class="contact-form">
+
 <input id="contactName" placeholder="الاسم الكامل">
 <input id="contactEmail" placeholder="البريد الإلكتروني">
 <input id="contactPhone" placeholder="رقم الجوال">
@@ -30,30 +33,45 @@
 <button onclick="sendMessage()">إرسال الرسالة</button>
 
 <p>📧 البريد: awtyn4942@gmail.com</p>
-<p>📱 الواتساب: <a href="https://wa.me/message/MD6WCUHK7WQ4M1" target="_blank">تواصل عبر واتساب</a></p>
+<p>📱 الواتساب: 
+<a href="https://wa.me/message/SLSSQBEHFXFBM1" target="_blank">تواصل عبر واتساب</a>
+</p>
 
 <p id="feedback"></p>
 </section>
 
 <script>
 function sendMessage(){
+
 const name = document.getElementById("contactName").value;
 const email = document.getElementById("contactEmail").value;
 const phone = document.getElementById("contactPhone").value;
 const msg = document.getElementById("contactMessage").value;
 
 if(name=="" || email=="" || msg==""){
-alert("يرجى ملء جميع الحقول المطلوبة");
+document.getElementById("feedback").innerText="يرجى ملء جميع الحقول المطلوبة";
 return;
 }
 
-document.getElementById("feedback").innerText = 
-`شكراً لك ${name}, تم استلام رسالتك. فريقنا سيتواصل معك قريبًا.`;
+const message = `مرحباً 👋
+لدي رسالة جديدة من نموذج التواصل
 
-document.getElementById("contactName").value = "";
-document.getElementById("contactEmail").value = "";
-document.getElementById("contactPhone").value = "";
-document.getElementById("contactMessage").value = "";
+الاسم: ${name}
+البريد: ${email}
+الجوال: ${phone}
+الرسالة: ${msg}`;
+
+const encodedMessage = encodeURIComponent(message);
+
+window.open(`https://wa.me/message/SLSSQBEHFXFBM1?text=${encodedMessage}`,'_blank');
+
+document.getElementById("feedback").innerText = 
+`شكراً لك ${name}، تم تحويل رسالتك إلى واتساب`;
+
+document.getElementById("contactName").value="";
+document.getElementById("contactEmail").value="";
+document.getElementById("contactPhone").value="";
+document.getElementById("contactMessage").value="";
 }
 </script>
 
